@@ -1,0 +1,5 @@
+export enum Game_ACTION_TYPES {
+  LOADING = "LOADING",
+  STOP_LOADING = "STOP_LOADING",
+  CLEAN = "CLEAN"
+}
