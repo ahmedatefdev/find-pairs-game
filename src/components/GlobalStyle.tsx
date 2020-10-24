@@ -1,17 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { spacing, colors } from '../styles/vars';
+import { spacing } from '../styles/vars';
 import 'antd/dist/antd.css';
+import { AppTheme, StyledProps } from '../types';
 
-type AppTheme = {
-    body: string
-    toggleBorder: string
-    text: string
-    gradient: string
-};
-interface props {
-    theme: AppTheme
-}
+
+
 
 const GlobalStyle = createGlobalStyle`
 
@@ -45,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
         text-rendering: optimizeLegibility;
         /* Theme vars */
         background: ${({ theme }) => theme.body};
-        color: ${({ theme }: props) => theme.text};
+        color: ${({ theme }: StyledProps) => theme.text};
         transition: all 0.50s linear;
     }
 

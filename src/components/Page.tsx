@@ -1,20 +1,20 @@
 import React from 'react'
 import HEAD from 'next/head'
 import GlobalStyle from './GlobalStyle'
+import Header from './Header'
 
-//    *   TODO: *Layout*     [2020-10-24 Sat]  
-//    **       : *_Global style_*
-//    **       : Add Header
-//    **       : add mete data
-//    **       : add childe
-//    **       : footer
 interface Props {
     children: any
-    title?: 'Find The Pairs'
-    description?: "This is a game based on finding pairs of the same image for all pictures to win the game"
+    title?: string
+    description?: string
 }
 
-const Page = ({ children, title, description }: Props) => {
+///// DONE: Add header
+/////    **       : Add Header
+/////    **       : add mete data
+/////    **       : add childe
+
+const Page = ({ children, title = 'Find The Pairs', description = "This is a game based on finding pairs of the same image for all pictures to win the game" }: Props) => {
     return (
         <>
             <HEAD>

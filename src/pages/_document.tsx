@@ -6,7 +6,7 @@ class FindPairsDocument extends Document {
         return (
             <Html lang="en-US">
                 <Head>
-                    <link rel="manifest" href="/static/manifest.json" />
+                    <link rel="manifest" href="/manifest.json" />
                     <meta name="mobile-web-app-capable" content="yes" />
                 </Head>
                 <body>
