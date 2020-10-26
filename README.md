@@ -1,4 +1,4 @@
-# Find The Pairs Game
+# Find The Pairs Game 📷📷
 
  A game based on finding pairs of the same image for all pictures to win the game and you can choses the count of the pairs to give the game more difficulty
 
