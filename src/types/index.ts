@@ -11,6 +11,12 @@ export type AppTheme = {
   textVers: string;
 };
 
-export interface StyledProps {
+export interface AppStyledProps {
   theme: AppTheme;
+}
+
+export interface CardData {
+  order: number;
+  imgURL: string;
+  name: string;
 }

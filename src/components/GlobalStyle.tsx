@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import { spacing } from '../styles/vars';
 import 'antd/dist/antd.css';
-import { AppTheme, StyledProps } from '../types';
+import { AppTheme, AppStyledProps } from '../types';
 
 
 
@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        /* font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
         min-width: 320px;
         scroll-behavior: smooth;
         -webkit-font-smoothing: antialiased;
@@ -28,18 +28,23 @@ const GlobalStyle = createGlobalStyle`
             box-sizing: inherit;
         }
     }
-
+*{
+    margin:0em;
+}
     body {
         padding: 0;
         margin: 0;
+        font-family: 'Nunito', sans-serif;
         font-size: 15px;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
         line-height: 1.65;
         text-rendering: optimizeLegibility;
         /* Theme vars */
+        color: ${(props: AppStyledProps) => {
+        return props.theme.text
+    }};
         background: ${({ theme }) => theme.body};
-        color: ${({ theme }: StyledProps) => theme.text};
         transition: all 0.50s linear;
     }
 
@@ -91,16 +96,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     hr {
-        border: 0;
-        margin: ${spacing.large};
-        text-align: center;
-
-        &::before {
-            content: '...';
-            display: inline-block;
-            letter-spacing: 1em;
-            line-height: 1;
-        }
+        margin: ${spacing.large} 0;
     }
 
     @media (min-width: 768px) {

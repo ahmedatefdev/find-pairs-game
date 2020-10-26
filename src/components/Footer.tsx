@@ -1,21 +1,17 @@
 import React from 'react'
 import styled, { ThemeConsumer } from 'styled-components'
-import { AppTheme, StyledProps } from '../types'
+import { spacing } from '../styles/vars'
+import { AppTheme, AppStyledProps } from '../types'
 
 interface Props {
     text?: string
 }
 
 const StyledFooter = styled.p`
-    position: absolute; 
-    bottom: 0px; 
     text-align:center;
-    margin :50px;
-    /* display:block; */
-    margin: 0;
+    margin :${spacing.extraSmall};
     width:100%;
-    padding-bottom:5px;
-    color:${({ theme }: StyledProps) => theme.grey[600]};
+    color:${({ theme }: AppStyledProps) => theme.grey[600]};
 
 `
 const Footer = ({ text = "Created by Ahmed Atef ©2020" }: Props) => {
