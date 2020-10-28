@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 import { spacing } from '../styles/vars';
 import 'antd/dist/antd.css';
-import { AppTheme, AppStyledProps } from '../types';
+import { IAppTheme } from "../IAppTheme";
+import { IAppStyledProps } from "../IAppStyledProps";
 
 
 
@@ -41,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1.65;
         text-rendering: optimizeLegibility;
         /* Theme vars */
-        color: ${(props: AppStyledProps) => {
+        color: ${(props: IAppStyledProps) => {
         return props.theme.text
     }};
         background: ${({ theme }) => theme.body};

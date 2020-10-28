@@ -1,30 +1,18 @@
 import { Context, createWrapper, MakeStore } from "next-redux-wrapper";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import CreateReduxSaga from "redux-saga";
-import IOrderState from "../../__TEMP__/redux/types/IOrderState";
-import Temp from "./reducers/TempRED";
+import CardReducer from "./reducers/Cards.reducer";
+import rootReducer from "./reducers/root.reducers";
+import rootSaga from "./saga/saga";
+import IState from "./types/IState";
+
 const reduxSaga = CreateReduxSaga();
 const middleware = [reduxSaga];
+function makeReduxStore(context: Context) {
+  const store = createStore(rootReducer, {}, applyMiddleware(...middleware));
+  // TODO: take all the saga funcs and add it to the run
+  (store as any).sagaTask = reduxSaga.run(rootSaga);
+  return store;
+}
 
-const reducer = combineReducers({ Temp });
-
-// export interface State {
-//   tick: string;
-// }
-
-// const store = (initialState: any = {}) => {
-//   return createStore(reducer, initialState, applyMiddleware(...middleware));
-// };
-const makeReduxStore: MakeStore<{ Temp: IOrderState }> = (context: Context) =>
-  createStore(
-    reducer,
-    {
-      Temp: {
-        loading: false,
-        order: {},
-        ordersData: { items: [], page: 1, pages: 1 }
-      }
-    },
-    applyMiddleware(...middleware)
-  );
-export const wrapper = createWrapper<{ Temp: IOrderState }>(makeReduxStore, {});
+export const wrapper = createWrapper<IState>(makeReduxStore);

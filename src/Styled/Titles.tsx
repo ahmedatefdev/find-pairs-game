@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { size, spacing } from '../styles/vars';
-import { AppStyledProps } from '../types';
+import { IAppStyledProps } from "../IAppStyledProps";
 
 export const MainTitle = styled.h1`
     text-align: center;
@@ -13,6 +13,6 @@ export const MainTitle = styled.h1`
 `
 
 export const SecTitle = styled.h2`
-    color: ${({ theme }: AppStyledProps) => theme.text};
+    color: ${({ theme }: IAppStyledProps) => theme.text};
     margin:0em;
 `

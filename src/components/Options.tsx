@@ -2,17 +2,13 @@ import React from 'react'
 import getConfig from 'next/config'
 import { Divider, Select, Button } from 'antd'
 import styled from 'styled-components'
-import { AppStyledProps } from '../types'
 import { MainTitle, SecTitle } from '../Styled/Titles'
 import { spacing } from '../styles/vars'
+import { useDispatch } from 'react-redux'
+import { setCards } from '../redux/actions/actions'
+import { IAppStyledProps } from '../redux/types/IAppStyledProps'
 const { Option } = Select
 
-// Only holds serverRuntimeConfig and publicRuntimeConfig
-const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
-// Will only be available on the server-side
-console.log(serverRuntimeConfig.mySecret)
-// Will be available on both server-side and client-side
-console.log(publicRuntimeConfig.staticFolder)
 
 interface Props {
 
@@ -29,8 +25,8 @@ interface Props {
 const OptionsContainer = styled.div`
     display:flex;
     flex-direction:column;
-    background-color:${({ theme }: AppStyledProps) => theme.border};
-    color:${({ theme }: AppStyledProps) => theme.text};
+    background-color:${({ theme }: IAppStyledProps) => theme.border};
+    color:${({ theme }: IAppStyledProps) => theme.text};
     padding:${spacing.normal};
     text-align:left;
     align-items:flex-start;
@@ -53,23 +49,33 @@ const OptionsInnerContainer = styled.div`
 `
 
 const CurrentScore = styled.h1`
-    color:${({ theme }: AppStyledProps) => theme.text};
+    color:${({ theme }: IAppStyledProps) => theme.text};
  span {
-    color:${({ theme }: AppStyledProps) => theme.accent};
+    color:${({ theme }: IAppStyledProps) => theme.accent};
 }
 `
 
 const OptionsDivider = styled.hr`
-    color:${({ theme }: AppStyledProps) => theme.text};
-    background-color:${({ theme }: AppStyledProps) => theme.text};
+    color:${({ theme }: IAppStyledProps) => theme.text};
+    background-color:${({ theme }: IAppStyledProps) => theme.text};
     width:50%;
 `
 
+const GenerateParisOnions = () => {
+    return (
+        <Select style={{ minWidth: "120px" }}>
+            <Option value="jack">Jack</Option>
+            <Option value="lucy">Lucy</Option>
+            <Option value="tom">Tom</Option>
+        </Select>
+    )
+}
 const Options = (props: Props) => {
     const score = 2
     const scoreToWin = 10
     const tries = 5
-    const HandelRestart = () => { }
+    const dispatch = useDispatch()
+
     return (
         <OptionsContainer>
             <SecTitle>Score</SecTitle>
@@ -86,13 +92,14 @@ const Options = (props: Props) => {
             <SecTitle>Options</SecTitle>
             <OptionsInnerContainer>
                 <p>Size &ensp; &ensp; &ensp;</p>
-                <Select style={{ minWidth: "120px" }}>
-                    <Option value="jack">Jack</Option>
-                    <Option value="lucy">Lucy</Option>
-                    <Option value="tom">Tom</Option>
-                </Select>
+
+                {
+                    GenerateParisOnions()
+                }
             </OptionsInnerContainer>
-            <Button onClick={HandelRestart} type="primary" title="Restart">Restart</Button>
+            <Button onClick={() => {
+                dispatch(setCards())
+            }} type="primary" title="Restart">Restart</Button>
         </OptionsContainer>
     )
 }

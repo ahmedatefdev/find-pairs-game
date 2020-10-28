@@ -1,4 +1,5 @@
-export type AppTheme = {
+
+interface IAppTheme {
   body: string;
   text: string;
   toggleBorder: string;
@@ -9,14 +10,8 @@ export type AppTheme = {
   border: string;
   grey: Object;
   textVers: string;
-};
-
-export interface AppStyledProps {
-  theme: AppTheme;
 }
 
-export interface CardData {
-  order: number;
-  imgURL: string;
-  name: string;
+export interface IAppStyledProps {
+  theme: IAppTheme;
 }

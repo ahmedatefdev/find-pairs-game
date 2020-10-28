@@ -19,7 +19,7 @@ const HeaderContainer = styled.div`
 const Header: React.FC<{}> = () => {
     return (
         <HeaderContainer>
-            <img src="/images/mainLogo.svg" alt="Logo" width="50px" height="50px" />
+            <img src="/favicons/mainLogo.svg" alt="Logo" width="50px" height="50px" />
             <MainTitle>Find the Pairs</MainTitle>
         </HeaderContainer>
     )

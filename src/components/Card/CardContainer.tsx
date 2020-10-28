@@ -1,49 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
-import { CardData } from '../../types'
+import ICardData from '../../redux/types/ICardData'
 import Card from './Card'
 
 interface Props {
-    cardsData: CardData[]
+    cardCount: number
+    randomCardsData: ICardData[]
 }
 
 const Container = styled.div`
     display:flex;
-    flex-direction: row;
+    flex-direction: row;    
     flex-wrap:wrap;
     justify-items:auto;
     justify-content:center;
     align-items:center;
-    
 `
-const CardsContainer = (props: Props) => {
+
+const GenerateCards = (randomCardsData: ICardData[]) => {
+    return randomCardsData.map(({ imgURL, order, hidden, selected }, i) =>
+        <Card cardData={{ imgURL: "images/" + imgURL, order, hidden, selected }} key={i} />
+    )
+}
+const CardsContainer = ({ randomCardsData }: Props) => {
     return (
         <Container>
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
-            <Card Visible={true} imageURL="ads" />
+            {GenerateCards(randomCardsData)}
         </Container>
     )
 }

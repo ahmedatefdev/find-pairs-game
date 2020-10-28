@@ -19,13 +19,11 @@ class MyApp extends App<IAppProps, {}, IAppState> {
       theme: "dark"
     }
   }
-  // static async getInitialProps({ Component, ctx }) {
-  //   //Preload from the server side
-  //   const appProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+  static async getInitialProps({ Component, ctx }) {
+    const appProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
 
-  //   console.log(appProps)
-  //   return { appProps: appProps };
-  // }
+    return { pageProps: appProps };
+  }
 
   themeToggler = () => {
     this.setState({ ...this.state, theme: this.state.theme === 'light' ? 'dark' : 'light' })
@@ -43,8 +41,8 @@ class MyApp extends App<IAppProps, {}, IAppState> {
     );
   }
 }
-// export default wrapper.withRedux(MyApp);
-export default MyApp
+export default wrapper.withRedux(MyApp);
+// export default MyApp
 
 
 
