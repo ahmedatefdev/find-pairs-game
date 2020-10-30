@@ -1,26 +1,19 @@
 import React from 'react'
-import getConfig from 'next/config'
-import { Divider, Select, Button } from 'antd'
+import { Select, Button } from 'antd'
 import styled from 'styled-components'
-import { MainTitle, SecTitle } from '../Styled/Titles'
+import { SecTitle } from '../Styled/Titles'
 import { spacing } from '../styles/vars'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setCards } from '../redux/actions/actions'
 import { IAppStyledProps } from '../redux/types/IAppStyledProps'
+import IState from '../redux/types/IState'
+import { selectCurrentPairsCount, selectScore } from '../redux/reducers/score.reducer'
 const { Option } = Select
 
 
 interface Props {
 
 }
-//  TODO: *Nav Options*     [2020-10-24 Sat]
-/////    **       : Options Right
-/////    ***       : Score now > En
-/////    ***       : Brack
-/////    ***       : pairs count and [restart Button]
-//    **     SEC : *Nav*        [2020-10-24 Sat]
-//    ***         : Options Top      
-//    **          : *Animations*
 
 const OptionsContainer = styled.div`
     display:flex;
@@ -71,9 +64,9 @@ const GenerateParisOnions = () => {
     )
 }
 const Options = (props: Props) => {
-    const score = 2
-    const scoreToWin = 10
-    const tries = 5
+    const score = useSelector(selectScore)
+    const currentPairsCount = useSelector(selectCurrentPairsCount)
+    const tries = useSelector((state: IState) => state.score.tries)
     const dispatch = useDispatch()
 
     return (
@@ -84,7 +77,7 @@ const Options = (props: Props) => {
                     <span>
                         {score + " "}
                     </span>
-                      / {scoreToWin}
+                      / {currentPairsCount}
                 </CurrentScore>
             </OptionsInnerContainer>
             <p>Tries: {tries}</p>

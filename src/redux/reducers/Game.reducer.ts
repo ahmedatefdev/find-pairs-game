@@ -17,14 +17,14 @@ export default function GameReducer(
       return { ...state, gameLoading: true };
     case Game_ACTION_TYPES.STOP_LOADING:
       return { ...state, gameLoading: false };
-    case Game_ACTION_TYPES.GAME_ERROR:
-      return { ...state, gameError: action.payload };
-    case Game_ACTION_TYPES.CLEAN_ERROR:
-      return { ...state, gameError: null };
     case Game_ACTION_TYPES.SHOW_CARDS:
       return { ...state, showCards: true };
     case Game_ACTION_TYPES.HIDE_CARDS:
       return { ...state, showCards: false };
+    case Game_ACTION_TYPES.GAME_ERROR:
+      return { ...state, gameError: action.payload };
+    case Game_ACTION_TYPES.CLEAN_ERROR:
+      return { ...state, gameError: null };
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import { Context, createWrapper, MakeStore } from "next-redux-wrapper";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import CreateReduxSaga from "redux-saga";
-import CardReducer from "./reducers/Cards.reducer";
+import CardReducer from "./reducers/cards.reducer";
 import rootReducer from "./reducers/root.reducers";
 import rootSaga from "./saga/saga";
 import IState from "./types/IState";
