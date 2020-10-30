@@ -12,7 +12,6 @@ export default function CardReducer(
   state: ICardsState = initialState,
   action: IAction
 ): ICardsState {
-  console.log("state", state);
   switch (action.type) {
     case CARDS_ACTION_TYPES.SET_CARDS_PAIRS_COUNT:
       return { ...state, pairsCount: action.payload };

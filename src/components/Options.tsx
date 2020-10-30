@@ -40,14 +40,12 @@ const OptionsInnerContainer = styled.div`
         margin:0em;
     }
 `
-
 const CurrentScore = styled.h1`
     color:${({ theme }: IAppStyledProps) => theme.text};
  span {
     color:${({ theme }: IAppStyledProps) => theme.accent};
 }
 `
-
 const OptionsDivider = styled.hr`
     color:${({ theme }: IAppStyledProps) => theme.text};
     background-color:${({ theme }: IAppStyledProps) => theme.text};

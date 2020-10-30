@@ -1,9 +1,9 @@
 import { all, call, delay, put, takeLatest, select } from "redux-saga/effects";
 import ICardData from "../types/ICardData";
-import { GetCardsData } from "./helper.saga";
 import { CARDS_ACTION_TYPES, Game_ACTION_TYPES } from "../types/ActionTypes";
 import getConfig from "next/config";
 import IState from "../types/IState";
+import { GetCardsData } from "./Helper.saga";
 
 const { publicRuntimeConfig } = getConfig();
 const images = require.context("../../../public/images", false, /.jpg/);
@@ -39,4 +39,3 @@ export function* loadCardsData() {
     yield put({ type: Game_ACTION_TYPES.CLEAN_ERROR });
   }
 }
-

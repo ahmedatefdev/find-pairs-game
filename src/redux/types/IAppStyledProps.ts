@@ -1,4 +1,3 @@
-
 interface IAppTheme {
   body: string;
   text: string;
@@ -10,6 +9,7 @@ interface IAppTheme {
   border: string;
   grey: Object;
   textVers: string;
+  white: string;
 }
 
 export interface IAppStyledProps {

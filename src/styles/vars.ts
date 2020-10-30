@@ -20,7 +20,8 @@ export const lightTheme = {
     500: "#7B8794",
     600: "#616E7C"
   },
-  textVers: "#FFFFFF"
+  textVers: "#FFFFFF",
+  white: "#FFF"
 };
 
 export const darkTheme = {
@@ -37,7 +38,8 @@ export const darkTheme = {
     500: "#84786B",
     600: "#9E9183"
   },
-  textVers: "#000000"
+  textVers: "#000000",
+  white: "#FFF"
 };
 
 export const size = {

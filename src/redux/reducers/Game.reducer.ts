@@ -5,7 +5,8 @@ import IGameState from "../types/IGameState";
 const initialState: IGameState = {
   gameLoading: false,
   showCards: true,
-  gameError: null
+  gameError: null,
+  winGame: false
 };
 
 export default function GameReducer(
@@ -13,10 +14,6 @@ export default function GameReducer(
   action: IAction
 ): IGameState {
   switch (action.type) {
-    case Game_ACTION_TYPES.LOADING:
-      return { ...state, gameLoading: true };
-    case Game_ACTION_TYPES.STOP_LOADING:
-      return { ...state, gameLoading: false };
     case Game_ACTION_TYPES.SHOW_CARDS:
       return { ...state, showCards: true };
     case Game_ACTION_TYPES.HIDE_CARDS:
@@ -25,6 +22,10 @@ export default function GameReducer(
       return { ...state, gameError: action.payload };
     case Game_ACTION_TYPES.CLEAN_ERROR:
       return { ...state, gameError: null };
+    case Game_ACTION_TYPES.START_GAME_WINNING:
+      return { ...state, winGame: true };
+    case Game_ACTION_TYPES.END_GAME_WINNING:
+      return { ...state, winGame: false };
     default:
       return state;
   }

@@ -9,6 +9,7 @@ import IState from '../redux/types/IState'
 import { IndexContainer, OptionNavButton, GameData } from '../Styled/IndexStyled'
 import ICardsState from '../redux/types/ICardsState'
 import { setCards } from '../redux/actions/actions'
+import WinGame from '../components/WinGame'
 
 interface IProps {
   theme: "dark" | "light"
@@ -55,6 +56,7 @@ const Index = (props: IProps) => {
           </div>
           <Footer />
         </IndexContainer>
+        <WinGame />
       </Page>
     </>
   )
