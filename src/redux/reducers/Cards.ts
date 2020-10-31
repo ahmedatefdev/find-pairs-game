@@ -1,7 +1,8 @@
 import getConfig from "next/config";
+import { CARDS_ACTION_TYPES } from "../types/ActionTypes";
 import IAction from "../types/IAction";
 import ICardsState from "../types/ICardsState";
-import { CARDS_ACTION_TYPES } from "../types/ActionTypes";
+
 const { publicRuntimeConfig } = getConfig();
 const initialState: ICardsState = {
   pairsCount: publicRuntimeConfig.defaultCardsCount,

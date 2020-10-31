@@ -1,7 +1,7 @@
 import { call, delay, put } from "redux-saga/effects";
 import getConfig from "next/config";
 import { setCards } from "../actions/actions";
-import { paths } from "./Helper.saga";
+import { paths } from "./Helper";
 import { CARDS_ACTION_TYPES, Game_ACTION_TYPES } from "../types/ActionTypes";
 
 const { publicRuntimeConfig } = getConfig();

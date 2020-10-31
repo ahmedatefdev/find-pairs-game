@@ -1,6 +1,6 @@
-import IAction from "../../../__TEMP__/redux/types/IAction";
 import { CARDS_ACTION_TYPES, Game_ACTION_TYPES } from "../types/ActionTypes";
 import getConfig from "next/config";
+import IAction from "../types/IAction";
 
 const { publicRuntimeConfig } = getConfig();
 

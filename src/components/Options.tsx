@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCards } from '../redux/actions/actions'
 import { IAppStyledProps } from '../redux/types/IAppStyledProps'
 import IState from '../redux/types/IState'
-import { selectCurrentPairsCount, selectScore } from '../redux/reducers/score.reducer'
+import { selectCurrentPairsCount, selectScore } from '../redux/reducers/Score'
 import { Game_ACTION_TYPES } from '../redux/types/ActionTypes'
 const { Option } = Select
 

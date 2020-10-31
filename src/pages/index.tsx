@@ -10,7 +10,7 @@ import { IndexContainer, OptionNavButton, GameData } from '../Styled/IndexStyled
 import ICardsState from '../redux/types/ICardsState'
 import { initialGame } from '../redux/actions/actions'
 import WinGame from '../components/WinGame'
-import { selectCurrentPairsCount, selectScore } from '../redux/reducers/score.reducer'
+import { selectCurrentPairsCount, selectScore } from '../redux/reducers/Score'
 
 interface IProps {
   theme: "dark" | "light"
@@ -27,8 +27,6 @@ const Index = (props: IProps) => {
 
   useEffect(() => {
     dispatch(initialGame())
-    // throw new Error("Error happen**");
-
   }, [])
 
   return (
