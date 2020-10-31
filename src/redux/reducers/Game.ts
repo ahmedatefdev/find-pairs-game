@@ -1,5 +1,5 @@
-import IAction from "../types/IAction";
 import { Game_ACTION_TYPES } from "../types/ActionTypes";
+import IAction from "../types/IAction";
 import IGameState from "../types/IGameState";
 
 const initialState: IGameState = {

@@ -1,10 +1,10 @@
 import { all, takeLatest, takeLeading } from "redux-saga/effects";
 import { CARDS_ACTION_TYPES, Game_ACTION_TYPES } from "../types/ActionTypes";
-import { loadCardsData } from "./GenerateCards.saga";
-import InitialGame from "./InitialGame.saga";
-import RestartGameByOption from "./ResetGame.saga";
-import SelectPairs from "./SelectCards.saga";
-import WinGame from "./WinGame.saga";
+import { loadCardsData } from "./GenerateCards";
+import InitialGame from "./InitialGame";
+import RestartGameByOption from "./ResetGame";
+import SelectPairs from "./SelectCards";
+import WinGame from "./WinGame";
 
 function* rootSaga() {
   yield all([

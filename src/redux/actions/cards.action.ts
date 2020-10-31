@@ -1,5 +1,5 @@
-import IAction from "../../../__TEMP__/redux/types/IAction";
 import { CARDS_ACTION_TYPES } from "../types/ActionTypes";
+import IAction from "../types/IAction";
 import ICardData from "../types/ICardData";
 
 export const selectCardByOrder = (cardData: ICardData): IAction => {

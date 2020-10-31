@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { ThemeConsumer } from 'styled-components'
+import styled from 'styled-components'
 import { IAppStyledProps } from '../redux/types/IAppStyledProps'
 import { spacing } from '../styles/vars'
 
@@ -12,8 +12,8 @@ const StyledFooter = styled.p`
     margin :${spacing.extraSmall};
     width:100%;
     color:${({ theme }: IAppStyledProps) => theme.grey[600]};
-
 `
+
 const Footer = ({ text = "Created by Ahmed Atef ©2020" }: Props) => {
     return (
         <StyledFooter>

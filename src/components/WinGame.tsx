@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled, { css, keyframes } from 'styled-components'
-import { selectScore } from '../redux/reducers/score.reducer'
+import { selectScore } from '../redux/reducers/Score'
 import { IAppStyledProps } from '../redux/types/IAppStyledProps'
 import IState from '../redux/types/IState'
 import { size } from '../styles/vars'

@@ -36,4 +36,4 @@ yarn-error.log*
 Tasks.org
 __TEMP__
 .vscode/
-next.config.js
+package-lock.json

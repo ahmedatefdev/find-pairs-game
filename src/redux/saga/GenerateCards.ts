@@ -2,7 +2,7 @@ import { all, call, delay, put, takeLatest, select } from "redux-saga/effects";
 import { CARDS_ACTION_TYPES, Game_ACTION_TYPES } from "../types/ActionTypes";
 import getConfig from "next/config";
 import IState from "../types/IState";
-import { GenerateRandomCardsData } from "./Helper.saga";
+import { GenerateRandomCardsData } from "./Helper";
 
 const { publicRuntimeConfig } = getConfig();
 
