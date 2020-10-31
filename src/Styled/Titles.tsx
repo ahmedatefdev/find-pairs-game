@@ -1,6 +1,6 @@
 import styled from 'styled-components'
+import { IAppStyledProps } from '../redux/types/IAppStyledProps';
 import { size, spacing } from '../styles/vars';
-import { IAppStyledProps } from "../IAppStyledProps";
 
 export const MainTitle = styled.h1`
     text-align: center;

@@ -1,4 +1,6 @@
 import ICardData from "../types/ICardData";
+const images = require.context("../../../public/images", false, /.jpg/);
+export const paths = images.keys();
 
 export function GetCardsData(
   cardsCount: number,
@@ -20,4 +22,12 @@ export function GetCardsData(
       });
     }
   }
+}
+
+export function GenerateRandomCardsData(pairsCount: number) {
+  let tempPaths = [...paths];
+  const orders = Array.from(Array(pairsCount * 2).keys());
+  const RandomCardsData: ICardData[] = [];
+  GetCardsData(pairsCount, tempPaths, orders, RandomCardsData);
+  return RandomCardsData;
 }

@@ -8,12 +8,10 @@ import { setCards } from '../redux/actions/actions'
 import { IAppStyledProps } from '../redux/types/IAppStyledProps'
 import IState from '../redux/types/IState'
 import { selectCurrentPairsCount, selectScore } from '../redux/reducers/score.reducer'
+import { Game_ACTION_TYPES } from '../redux/types/ActionTypes'
 const { Option } = Select
 
 
-interface Props {
-
-}
 
 const OptionsContainer = styled.div`
     display:flex;
@@ -52,20 +50,23 @@ const OptionsDivider = styled.hr`
     width:50%;
 `
 
-const GenerateParisOnions = () => {
+const GenerateParisOnions = (pairsOptions: number[]) => {
     return (
-        <Select style={{ minWidth: "120px" }}>
-            <Option value="jack">Jack</Option>
-            <Option value="lucy">Lucy</Option>
-            <Option value="tom">Tom</Option>
-        </Select>
+        <>
+            {pairsOptions.map((option) =>
+                <Option value={option} key={option}>{`${option} pairs`}</Option>
+            )
+            }
+        </>
     )
 }
-const Options = (props: Props) => {
+const Options = () => {
     const score = useSelector(selectScore)
     const currentPairsCount = useSelector(selectCurrentPairsCount)
     const tries = useSelector((state: IState) => state.score.tries)
+    const pairsOptions = useSelector((state: IState) => state.game.pairsOptionValues)
     const dispatch = useDispatch()
+
 
     return (
         <OptionsContainer>
@@ -83,10 +84,14 @@ const Options = (props: Props) => {
             <SecTitle>Options</SecTitle>
             <OptionsInnerContainer>
                 <p>Size &ensp; &ensp; &ensp;</p>
-
-                {
-                    GenerateParisOnions()
-                }
+                {pairsOptions.length > 0 &&
+                    <Select style={{ minWidth: "120px" }} defaultValue={pairsOptions[0]}
+                        onChange={(value) => {
+                            dispatch({ type: Game_ACTION_TYPES.RESTART_GAME_BY_OPTION, payload: value })
+                        }
+                        }>
+                        {GenerateParisOnions(pairsOptions)}
+                    </Select>}
             </OptionsInnerContainer>
             <Button onClick={() => {
                 dispatch(setCards())

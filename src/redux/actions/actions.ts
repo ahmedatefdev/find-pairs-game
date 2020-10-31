@@ -14,6 +14,10 @@ export const setCardsParies = (
   return { type: CARDS_ACTION_TYPES.SET_CARDS_PAIRS_COUNT, payload: count };
 };
 
+export const initialGame = (): IAction => ({
+  type: Game_ACTION_TYPES.INITIAL_GAME
+});
+
 export const startGameWining = (): IAction => ({
   type: Game_ACTION_TYPES.START_GAME_WINNING
 });

@@ -14,7 +14,7 @@ const winGameAnimationOuter = keyframes`
     0% { visibility:visible; }  
     100% { visibility:hidden; }
 `
-const innerContainerAnimation = keyframes`
+const innerContainerAnimationLargeScreen = keyframes`
     0%{
         font-size:0em;
     }
@@ -33,6 +33,7 @@ const innerContainerAnimation = keyframes`
         font-size:large;
         @media(max-width: ${size.tablet}) {
             width: 90%;
+            height: 30%;
         }
     }  
     75% {
@@ -41,6 +42,7 @@ const innerContainerAnimation = keyframes`
         font-size:large;
         @media(max-width: ${size.tablet}) {
             width: 90%;
+            height: 30%;
         }
     }  
     80%{
@@ -50,7 +52,38 @@ const innerContainerAnimation = keyframes`
             width: 100%;
         }
     }
-    90%{
+    100%{
+        width: 0%;
+        height: 0%;
+        font-size:0em;
+
+    }
+`
+const innerContainerAnimationSmallScreen = keyframes`
+    0%{
+        font-size:0em;
+    }
+    20% {
+        width: 100%;
+        height: 40%;
+        font-size:larger;
+    }  
+    40% {
+        width: 95%;
+        height: 30%;
+        font-size:large;
+    }  
+    75% {
+        width: 95%;
+        height: 30%;
+        font-size:large;
+    }  
+    80%{
+        width: 100%;
+        height: 40%;
+        font-size:larger;
+    }
+    100%{
         width: 0%;
         height: 0%;
         font-size:0em;
@@ -63,7 +96,7 @@ const OuterContainer = styled.div<{ winGame: Number, animationTiming: string }>`
     display:flex;
     align-items:center;
     justify-content:center;
-    width:100vh;
+    width:100vw;
     height:100vh;
     top:0;
     left:0;
@@ -72,6 +105,7 @@ const OuterContainer = styled.div<{ winGame: Number, animationTiming: string }>`
         return winGame ? css`${winGameAnimationOuter} ${animationTiming}  ease-in-out  forwards` : '';
     }};
     .inner_text{
+        border-radius:1em;
         font-size:smaller;
         width: 0%;
         height: 0%;
@@ -81,7 +115,14 @@ const OuterContainer = styled.div<{ winGame: Number, animationTiming: string }>`
         justify-content:center;
         background-color: ${({ theme }: IAppStyledProps) => theme.accent};
         animation: ${({ winGame, animationTiming }) =>
-        winGame ? css`${innerContainerAnimation} ${animationTiming} ease-in-out  forwards` : ''};
+        winGame ? css`${innerContainerAnimationLargeScreen} ${animationTiming} ease-in-out  forwards` : ''};
+    }
+    @media(max-width: ${size.tablet}) {
+      
+        .inner_text{
+        animation: ${({ winGame, animationTiming }) =>
+        winGame ? css`${innerContainerAnimationSmallScreen} ${animationTiming} ease-in-out  forwards` : ''}; 
+        }
     }
 `
 

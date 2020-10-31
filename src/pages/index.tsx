@@ -8,8 +8,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import IState from '../redux/types/IState'
 import { IndexContainer, OptionNavButton, GameData } from '../Styled/IndexStyled'
 import ICardsState from '../redux/types/ICardsState'
-import { setCards } from '../redux/actions/actions'
+import { initialGame } from '../redux/actions/actions'
 import WinGame from '../components/WinGame'
+import { selectCurrentPairsCount, selectScore } from '../redux/reducers/score.reducer'
 
 interface IProps {
   theme: "dark" | "light"
@@ -20,13 +21,14 @@ const Index = (props: IProps) => {
   const { cards } = useSelector<IState, IState>(state => state);
   const [showOptions, setShowOptions] = useState(false)
   const dispatch = useDispatch()
-
-  const score = 2
-  const scoreToWin = 10
-  const tries = 5
+  const score = useSelector(selectScore)
+  const currentPairsCount = useSelector(selectCurrentPairsCount)
+  const tries = useSelector((state: IState) => state.score.tries)
 
   useEffect(() => {
-    dispatch(setCards())
+    dispatch(initialGame())
+    // throw new Error("Error happen**");
+
   }, [])
 
   return (
@@ -41,7 +43,7 @@ const Index = (props: IProps) => {
                     <span>
                 {score + " "}
               </span>
-                    / {scoreToWin}
+                    / {currentPairsCount}
             </p>
             <p>tries: {tries}</p>
           </GameData>

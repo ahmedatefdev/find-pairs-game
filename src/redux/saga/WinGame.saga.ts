@@ -1,7 +1,7 @@
 import { call, delay, put } from "redux-saga/effects";
 import { endGameWining, startGameWining } from "../actions/actions";
 import getConfig from "next/config";
-import ResetGame from "./ResetGame.saga";
+import { ResetGame } from "./ResetGame.saga";
 
 const { publicRuntimeConfig } = getConfig();
 const animationTime = publicRuntimeConfig.restTimeAfterWin;

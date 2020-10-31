@@ -3,4 +3,5 @@ export default interface IGameState {
   showCards: boolean;
   gameError: any | null;
   winGame: boolean;
+  pairsOptionValues: number[];
 }

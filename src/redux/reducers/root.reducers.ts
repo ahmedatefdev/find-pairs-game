@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import IState from "../types/IState";
 import CardReducer from "./cards.reducer";
-import GameReducer from "./Game.reducer";
+import GameReducer from "./game.reducer";
 import ScoreReducer from "./score.reducer";
 
 const rootReducer = combineReducers<IState>({

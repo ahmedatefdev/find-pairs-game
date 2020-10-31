@@ -1,8 +1,8 @@
 import App, { AppProps } from 'next/app';
 import { Provider } from "react-redux";
 import { ThemeProvider } from 'styled-components'
-import { lightTheme, darkTheme } from "../styles/vars"
 import * as React from 'react';
+import { darkTheme, lightTheme } from '../styles/vars';
 import { wrapper } from '../redux/Store';
 
 export interface IAppProps extends AppProps {
@@ -19,11 +19,6 @@ class MyApp extends App<IAppProps, {}, IAppState> {
       theme: "dark"
     }
   }
-  static async getInitialProps({ Component, ctx }) {
-    const appProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
-
-    return { pageProps: appProps };
-  }
 
   themeToggler = () => {
     this.setState({ ...this.state, theme: this.state.theme === 'light' ? 'dark' : 'light' })
@@ -32,11 +27,9 @@ class MyApp extends App<IAppProps, {}, IAppState> {
   render() {
     const { Component, pageProps, store } = this.props;
     return (
-      // <Provider store={store}>
       <ThemeProvider theme={this.state.theme === 'light' ? lightTheme : darkTheme}>
         <Component {...pageProps} themeToggler={this.themeToggler} theme={this.state.theme} />
       </ThemeProvider >
-      // </Provider>
 
     );
   }

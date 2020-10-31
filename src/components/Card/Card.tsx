@@ -80,7 +80,7 @@ const Card = ({ cardData }: Props) => {
     const dispatch = useDispatch()
     const HandelCardClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         e.stopPropagation();
-        if (hidden || selected) return;
+        if (hidden || selected || showCards) return;
         dispatch(selectCardByOrder(cardData))
     }
     return (

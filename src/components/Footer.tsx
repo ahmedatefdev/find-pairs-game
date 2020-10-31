@@ -1,8 +1,7 @@
 import React from 'react'
 import styled, { ThemeConsumer } from 'styled-components'
+import { IAppStyledProps } from '../redux/types/IAppStyledProps'
 import { spacing } from '../styles/vars'
-import { IAppTheme } from "../IAppTheme"
-import { IAppStyledProps } from "../IAppStyledProps"
 
 interface Props {
     text?: string

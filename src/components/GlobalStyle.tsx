@@ -2,8 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import { spacing } from '../styles/vars';
 import 'antd/dist/antd.css';
-import { IAppTheme } from "../IAppTheme";
-import { IAppStyledProps } from "../IAppStyledProps";
+import { IAppStyledProps } from '../redux/types/IAppStyledProps';
 
 
 
