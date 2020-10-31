@@ -7,7 +7,7 @@ module.exports = withPWA({
   publicRuntimeConfig: {
     defaultCardsCount: 5,
     restTimeAfterWin: 3,
-    cardsByRowCount: 5,
+    cardsByRowCount: 10,
     allCardReveal: 5
   }
 });

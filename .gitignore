@@ -37,3 +37,4 @@ Tasks.org
 __TEMP__
 .vscode/
 package-lock.json
+.vercel
