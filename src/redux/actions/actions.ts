@@ -25,3 +25,6 @@ export const startGameWining = (): IAction => ({
 export const endGameWining = (): IAction => ({
   type: Game_ACTION_TYPES.END_GAME_WINNING
 });
+export const changeTheme = (): IAction => ({
+  type: Game_ACTION_TYPES.TOGGLE_THEME
+});

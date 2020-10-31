@@ -38,3 +38,5 @@ __TEMP__
 .vscode/
 package-lock.json
 .vercel
+*.map
+workbox*

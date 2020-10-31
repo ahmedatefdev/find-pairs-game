@@ -4,4 +4,5 @@ export default interface IGameState {
   gameError: any | null;
   winGame: boolean;
   pairsOptionValues: number[];
+  theme: "light" | "dark";
 }

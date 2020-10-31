@@ -13,7 +13,6 @@ import WinGame from '../components/WinGame'
 import { selectCurrentPairsCount, selectScore } from '../redux/reducers/Score'
 
 interface IProps {
-  theme: "dark" | "light"
   cardsData: ICardsState
 }
 
@@ -23,7 +22,7 @@ const Index = (props: IProps) => {
   const dispatch = useDispatch()
   const score = useSelector(selectScore)
   const currentPairsCount = useSelector(selectCurrentPairsCount)
-  const tries = useSelector((state: IState) => state.score.tries)
+  const { tries, theme } = useSelector((state: IState) => ({ tries: state.score.tries, theme: state.game.theme }))
 
   useEffect(() => {
     dispatch(initialGame())
@@ -35,7 +34,7 @@ const Index = (props: IProps) => {
         <IndexContainer showOptions={showOptions}>
           <OptionNavButton showOptions={showOptions} onClick={() => {
             setShowOptions(!showOptions)
-          }}  ><img src={props.theme === "dark" ? "/favicons/listLight.svg" : "/favicons/listDark.svg"} alt="tap" /></OptionNavButton>
+          }}  ><img src={theme === "dark" ? "/favicons/listLight.svg" : "/favicons/listDark.svg"} alt="tap" /></OptionNavButton>
           <GameData>
             <p>score:&ensp;
                     <span>

@@ -9,6 +9,7 @@ import { IAppStyledProps } from '../redux/types/IAppStyledProps'
 import IState from '../redux/types/IState'
 import { selectCurrentPairsCount, selectScore } from '../redux/reducers/Score'
 import { Game_ACTION_TYPES } from '../redux/types/ActionTypes'
+import ThemeToggle from './ThemeToggle'
 const { Option } = Select
 
 
@@ -70,6 +71,7 @@ const Options = () => {
 
     return (
         <OptionsContainer>
+            <ThemeToggle />
             <SecTitle>Score</SecTitle>
             <OptionsInnerContainer>
                 <CurrentScore>
@@ -85,10 +87,11 @@ const Options = () => {
             <OptionsInnerContainer>
                 <p>Size &ensp; &ensp; &ensp;</p>
                 {pairsOptions.length > 0 &&
-                    <Select style={{ minWidth: "120px" }} defaultValue={pairsOptions[0]}
-                        onChange={(value) => {
-                            dispatch({ type: Game_ACTION_TYPES.RESTART_GAME_BY_OPTION, payload: value })
-                        }
+                    <Select style={{ minWidth: "120px" }} defaultValue={pairsOptions[1] || 0}
+                        onChange={
+                            (value) => {
+                                dispatch({ type: Game_ACTION_TYPES.RESTART_GAME_BY_OPTION, payload: value })
+                            }
                         }>
                         {GenerateParisOnions(pairsOptions)}
                     </Select>}

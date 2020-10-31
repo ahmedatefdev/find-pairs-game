@@ -74,6 +74,10 @@ const FlipCard = styled.div<{ rotate?: number, order: number, hideCard: boolean 
     }
 `
 
+const WhiteMainTitle = styled(MainTitle)`
+   color: ${({ theme }: IAppStyledProps) => theme.white};
+
+`
 const Card = ({ cardData }: Props) => {
     const { hidden, selected, imgURL, order } = cardData
     const { showCards: showCards } = useSelector((state: IState) => ({ showCards: state.game.showCards }))
@@ -91,7 +95,7 @@ const Card = ({ cardData }: Props) => {
                     <img src={imgURL} alt="Avatar" />
                 </div>
                 <div className="flip-card-back">
-                    <MainTitle>?</MainTitle>
+                    <WhiteMainTitle>?</WhiteMainTitle>
                 </div>
             </div>
         </FlipCard>

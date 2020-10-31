@@ -12,7 +12,8 @@ function GetArrayOfParies(fullRowsCount: number, restOfFullRows: number) {
     pairs.push(i * publicRuntimeConfig.cardsByRowCount);
   restOfFullRows &&
     pairs.push(
-      (fullRowsCount || 0) * publicRuntimeConfig.cardsByRowCount + restOfFullRows
+      (fullRowsCount || 0) * publicRuntimeConfig.cardsByRowCount +
+        restOfFullRows
     );
   return pairs;
 }
@@ -27,9 +28,14 @@ function* SetPairsOptions() {
       throw new Error("No valued Pairs to add");
     const pairs = GetArrayOfParies(fullRowsCount, restOfFullRows);
     yield put({ type: Game_ACTION_TYPES.SET_PAIRS_OPTIONS, payload: pairs });
+    const optionIndex =
+      publicRuntimeConfig.defaultCardsCount /
+        publicRuntimeConfig.cardsByRowCount -
+        1 || 0;
+    console.log("function*SetPairsOptions -> optionIndex", optionIndex);
     yield put({
       type: CARDS_ACTION_TYPES.SET_CARDS_PAIRS_COUNT,
-      payload: pairs[0]
+      payload: pairs[optionIndex]
     });
   } catch (error) {
     yield put({ type: Game_ACTION_TYPES.GAME_ERROR, payload: error });

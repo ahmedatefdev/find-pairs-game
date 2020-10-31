@@ -7,7 +7,8 @@ const initialState: IGameState = {
   showCards: true,
   gameError: null,
   winGame: false,
-  pairsOptionValues: []
+  pairsOptionValues: [],
+  theme: "dark"
 };
 
 export default function GameReducer(
@@ -29,6 +30,8 @@ export default function GameReducer(
       return { ...state, winGame: false };
     case Game_ACTION_TYPES.SET_PAIRS_OPTIONS:
       return { ...state, pairsOptionValues: payload };
+    case Game_ACTION_TYPES.TOGGLE_THEME:
+      return { ...state, theme: state.theme === "dark" ? "light" : "dark" };
     default:
       return state;
   }
