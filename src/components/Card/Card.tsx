@@ -16,7 +16,7 @@ interface Props {
 
 const FlipCard = styled.div<{ rotate?: number, order: number, hideCard: boolean }>`
     cursor: pointer;
-    background-color: transparent;
+    background-color: ${({ theme }: IAppStyledProps ) => theme.body};
     width: max-content;
     height:max-content;
     perspective: 1000px;
@@ -39,14 +39,14 @@ const FlipCard = styled.div<{ rotate?: number, order: number, hideCard: boolean 
         }
 
         .flip-card-front {
-            background-color: #bbb;
-            color: black;
+            background-color:  ${({ theme }: IAppStyledProps ) => theme.body};
+            color: ${({ theme }: IAppStyledProps ) => theme.body};
             transform: rotateY(180deg);
             
         }
          
         .flip-card-back {
-            background-color:  ${({ theme }: IAppStyledProps) => theme.accent};
+            background-color:  ${({ theme, hideCard }: IAppStyledProps & { hideCard: boolean }) => hideCard ? "#00f094" : theme.accent};
             border-radius:0.3em;
             display:flex;
             justify-content:center;
@@ -69,6 +69,8 @@ const FlipCard = styled.div<{ rotate?: number, order: number, hideCard: boolean 
 
         
     opacity:${({ hideCard }) => hideCard ? "0%" : "100%"};
+    visibility:${({ hideCard }) => hideCard ? "hidden" : "visible"};
+    
     .flip-card-inner {
         transform: ${({ rotate }) => rotate ? `rotateY(180deg)` : `rotateY(0)`};
     }
@@ -88,7 +90,7 @@ const Card = ({ cardData }: Props) => {
         dispatch(selectCardByOrder(cardData))
     }
     return (
-        <FlipCard rotate={Number(selected) | Number(showCards)} onClick={
+        <FlipCard rotate={Number(selected) || Number(showCards)} onClick={
             HandelCardClick} order={order} hideCard={hidden}>
             <div className="flip-card-inner">
                 <div className="flip-card-front">
